@@ -15,6 +15,8 @@ def Haversine(ponto1, ponto2, medida = 'metro'):
     if medida == 'metro':
         return h * 1000
     if medida == 'kilometros':
+        return h
+    if medida == 'milhas':
         return h * 0.621371
     if medida == 'pes':
         return h * 3280.84
