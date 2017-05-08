@@ -30,8 +30,17 @@ def moviment(center, nstep):
         return 'E'
     if center[0] > nstep[0] and center[1] > nstep[1]:
         return 'W'
+    else:
+        return 'C'
 
 
-#print moviment([-22.539538, -44.772836], [-22.539957, -44.773748])
+posicoes = [[-22.540708,-44.773163],
+            [-22.540500,-44.773187],
+            [-22.540643,-44.773168],
+            [-22.540619,-44.773021],
+            [-22.540644,-44.773329]]
+
+for p in range(0,len(posicoes)-1):
+    print moviment(posicoes[p], posicoes[p+1])
 #print Haversine([-22.540540, -44.773176],[-22.540687, -44.773793])
 
