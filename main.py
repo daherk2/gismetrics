@@ -21,7 +21,7 @@ def Haversine(ponto1, ponto2, medida = 'metro'):
     if medida == 'pes':
         return h * 3280.84
 
-def moviment(center, nstep):
+def Moviment(center, nstep):
     if center[0] > nstep[0] and center[1] < nstep[1]:
         return 'S'
     if center[0] < nstep[0] and center[1] > nstep[1]:
@@ -33,14 +33,12 @@ def moviment(center, nstep):
     else:
         return 'C'
 
+def Get_time(date_in, date_out):
+    return abs((date_out - date_in).seconds)
 
-posicoes = [[-22.540708,-44.773163],
-            [-22.540500,-44.773187],
-            [-22.540643,-44.773168],
-            [-22.540619,-44.773021],
-            [-22.540644,-44.773329]]
+def Median_speed(posini, posend , timeini, timeend):
+    vart = Get_time(timeini, timeend)
+    vard = Haversine(posini, posend)
+    return vard / vart
 
-for p in range(0,len(posicoes)-1):
-    print moviment(posicoes[p], posicoes[p+1])
-#print Haversine([-22.540540, -44.773176],[-22.540687, -44.773793])
 
