@@ -1,6 +1,9 @@
 
 from __future__ import division
 from math import radians, cos, sin, asin, sqrt
+import datetime
+import time
+import random as rd
 
 def Haversine(ponto1, ponto2, medida = 'metro'):
     lat1 = ponto1[0]
@@ -33,12 +36,15 @@ def Moviment(center, nstep):
     else:
         return 'C'
 
-def Get_time(date_in, date_out):
-    return abs((date_out - date_in).seconds)
+def Get_time(date_in, date_out, medida = 'segundo'):
+    if medida == 'segundo':
+        return abs((date_out - date_in).seconds)
+    if medida == 'hora':
+        return abs((date_out - date_in).seconds)*(3600)
 
 def Median_speed(posini, posend , timeini, timeend):
-    vart = Get_time(timeini, timeend)
-    vard = Haversine(posini, posend)
-    return vard / vart
+    vart = Get_time(timeini, timeend, 'segundo')
+    vard = Haversine(posini, posend, 'metro')
+    return vard / vart #this return is in Meter per second
 
 
